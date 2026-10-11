@@ -73,8 +73,8 @@ health, JSON data, HTTP environment overrides and 404 responses.
 
 The GitHub account `37006` is connected and its private repository has been created:
 https://github.com/37006/sarsembayev-eldar-devops
-The original Git history is sent with Git, without recreating the commits through
-file uploads. Instructor access must be configured before submission.
+The complete project and its original Git history have been pushed to both `main`
+and `development`. Instructor access must be configured before submission.
 The setup status in `docs/WINDOWS_SETUP_RU.md` distinguishes preparation from
 operations that have actually completed.
 

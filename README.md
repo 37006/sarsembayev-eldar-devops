@@ -78,10 +78,10 @@ health, JSON data, HTTP environment overrides and 404 responses.
 
 ## GitHub and Jenkins
 
-The GitHub account `37006` is connected and its private repository has been created:
+The GitHub account `37006` is connected and its public repository is accessible to the instructor:
 https://github.com/37006/sarsembayev-eldar-devops
 The complete project and its original Git history have been pushed to both `main`
-and `development`. Instructor access must be configured before submission.
+and `development`. The repository is public with the student's explicit approval.
 The setup status in `docs/WINDOWS_SETUP_RU.md` distinguishes preparation from
 operations that have actually completed.
 
@@ -91,7 +91,7 @@ bash scripts/publish_github.sh
 
 The **Pipeline** job `Sarsembayev_Eldar_DevOps` is created and verified. Its settings are **Pipeline script from SCM**,
 SCM **Git**, your real repository URL, branch `*/main`, Script Path `Jenkinsfile`.
-This private repository uses the dedicated read-only SSH deploy key `github-lab-readonly` in Jenkins.
+Jenkins uses the public HTTPS repository URL; no GitHub credential is required. TLS verification remains enabled.
 The executed build finished with `Finished: SUCCESS`. Use Build Now for your own video demonstration.
 
 The pipeline stages are Checkout, Build, Test, Docker Build, Docker Run.

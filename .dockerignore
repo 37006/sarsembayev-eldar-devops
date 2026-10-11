@@ -1,0 +1,17 @@
+.git
+.env
+*.log
+logs
+backup
+reports
+__pycache__
+**/__pycache__
+*.pyc
+*.zip
+*.tar
+docs
+tests
+scripts
+private.txt
+public.txt
+

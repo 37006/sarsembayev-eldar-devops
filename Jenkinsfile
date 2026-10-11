@@ -22,7 +22,8 @@ pipeline {
                 checkout scm
                 sh '''
                     set -eu
-                    printf 'Student: %s %s | Group: %s | ID: %s\n' "$STUDENT_NAME" "$STUDENT_SURNAME" "$STUDENT_GROUP" "$STUDENT_ID"
+                    printf 'Student: %s %s\n' "$STUDENT_NAME" "$STUDENT_SURNAME"
+                    printf 'Group: %s\nStudent ID: %s\n' "$STUDENT_GROUP" "$STUDENT_ID"
                     git rev-parse HEAD
                     git log -1 --format='%h %s'
                     test "$(uname -s)" = Linux
@@ -69,4 +70,3 @@ pipeline {
         }
     }
 }
-

@@ -1,0 +1,6 @@
+Name: Eldar
+Surname: Sarsembayev
+Group: IT2-2301
+Student ID: 37006
+Course: DevOps
+

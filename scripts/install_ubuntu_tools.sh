@@ -48,6 +48,7 @@ if ! dpkg-query -W -f='${Status}' jenkins 2>/dev/null | grep -q 'install ok inst
   cat > /etc/systemd/system/jenkins.service.d/local-lab.conf <<'SERVICE'
 [Service]
 Environment="JENKINS_OPTS=--httpListenAddress=127.0.0.1"
+Environment="JAVA_OPTS=-Djava.awt.headless=true -Djava.net.preferIPv4Stack=true"
 SERVICE
   install -m 0755 -d /etc/apt/keyrings
   curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2026.key \

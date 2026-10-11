@@ -3,32 +3,32 @@
 DevOps Fundamentals: Linux, Git, Docker and Jenkins.
 Eldar Sarsembayev, IT2-2301, Student ID 37006.
 
-## Что уже подготовлено и что нужно выполнить
+## Фактический результат
 
-Готовы персональное приложение, конфигурация, Bash-скрипты, Dockerfile,
-docker-compose.yml, Jenkinsfile, тесты и локальная история Git.
-Приложение и 11 тестов проверены на Windows. Для окончания лабораторной нужны
-реальный запуск Linux, Docker, Jenkins и непрерывное видео с твоим голосом.
-На Windows 11 Pro установлен WSL 3.0.1 и включена VirtualMachinePlatform;
-Windows требует перезагрузку. Ubuntu ещё не установлен. Аккаунт GitHub `37006`
-подключён, проект и история веток main/development опубликованы. Текущий статус в
-`docs/WINDOWS_SETUP_RU.md`. Успех внешних запусков подтверждается их результатами.
+На Windows 11 Pro установлен и запущен Ubuntu 24.04.5 в WSL 3.0.1.
+Создан ~/devops/sarsembayev_eldar с владельцем eldar. Команды Linux выполнены,
+права проверены, все 11 тестов прошли в Ubuntu. Docker Engine, Compose,
+Java и Jenkins установлены. Docker и Compose демонстрации завершились успешно.
+Личный GitHub-репозиторий содержит исходную историю и обе ветки. Jenkins получил
+проект из GitHub, выполнил Checkout, Build, Test, Docker Build и Docker Run;
+реальный результат первой сборки — Finished: SUCCESS. Видео со своим голосом
+студент записывает отдельно. Команды ниже служат для демонстрации и повторения.
 
-## Подготовка Linux
+## Запуск готовой лабораторной
 
-Сначала перезагрузи Windows для завершения включения VirtualMachinePlatform.
-Codex продолжит установку Ubuntu 24.04 в WSL и инструментов лабораторной.
-WSL запускает Linux внутри Windows; переустанавливать Windows не требуется.
-После появления Linux распакуй ZIP в домашний каталог `devops`. Внутри архива
-корневая папка называется `sarsembayev_eldar`, включая скрытую папку `.git`.
-Если архив находится в Downloads, используй его фактическое имя:
+После перезагрузки Windows выполни ./scripts/Start-Lab.ps1 из Windows-папки проекта.
+Он сохраняет WSL активным для работы служб; автозапуск Windows не изменяется.
+Jenkins: http://127.0.0.1:8080/. Приложение после Jenkins: http://127.0.0.1:8082/.
+Для Linux открой PowerShell и выполни wsl -d Ubuntu-24.04 -u eldar.
 
 ```bash
-mkdir -p ~/devops
-unzip ~/Downloads/Sarsembayev_Eldar_DevOps_Package.zip -d ~/devops
 cd ~/devops/sarsembayev_eldar
 bash scripts/setup_linux.sh
 ```
+
+Для переноса на другую Linux-систему сохрани папку .git из ZIP, распакуй проект
+в ~/devops и выполни ту же команду подготовки. Папка в архиве называется
+sarsembayev_eldar, включая реальную историю Git.
 
 Скрипт создаёт `logs/`, `backup/`, `reports/evidence/`, пример журнала из 10 строк,
 локальный `.env`, выставляет права и проверяет инструменты. Если `unzip` отсутствует,

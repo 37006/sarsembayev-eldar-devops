@@ -16,10 +16,9 @@ if docker container inspect "$container" >/dev/null 2>&1; then
   fi
   docker rm -f "$container"
 fi
-docker run -d --name "$container" --label lab.owner=sarsembayev-eldar-devops \
+docker run -d --restart unless-stopped --name "$container" --label lab.owner=sarsembayev-eldar-devops \
   -p "127.0.0.1:${host_port}:8080" \
   -e STUDENT_NAME -e STUDENT_SURNAME -e STUDENT_GROUP -e STUDENT_ID "$image"
 bash scripts/verify_container.sh "$container"
 docker ps --filter "name=^/${container}$"
 docker logs "$container"
-

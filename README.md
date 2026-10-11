@@ -18,14 +18,21 @@ The application uses Python's standard library and needs no pip dependencies.
 | Compose demonstration container | `sarsembayev-eldar-compose` |
 | Jenkins job | `Sarsembayev_Eldar_DevOps` |
 
-## Windows 11 and Linux setup
+## Verified Windows and Linux setup
 
-The Windows WSL 3.0.1 component is installed. Virtual Machine Platform has been
-enabled and Windows requires a restart before Linux can be started.
-Ubuntu, Docker and Jenkins have not been installed or run yet.
-After restarting Windows, continue the setup with Codex. The official Ubuntu
-24.04 installer for Docker, Compose, Java and Jenkins is prepared in
-`scripts/install_ubuntu_tools.sh`; it requires Linux with systemd.
+WSL 3.0.1 and Ubuntu 24.04.5 LTS are installed and running with systemd.
+Docker Engine 29.9.0, Compose v5.6.0, Java 21 and Jenkins 2.580.1 are installed.
+All Linux command demonstrations and 11 tests passed in Ubuntu. The complete
+Docker lifecycle, environment variables and Compose demonstration passed.
+Jenkins obtained this project from GitHub, completed all five stages and ended
+with `Finished: SUCCESS`. Actual transcripts are retained for the report.
+
+After a Windows restart, run `./scripts/Start-Lab.ps1` from the Windows project
+directory. It starts this local WSL lab without changing Windows autostart.
+Open Linux using `wsl -d Ubuntu-24.04 -u eldar`, then use
+`cd ~/devops/sarsembayev_eldar`.
+Jenkins is at http://127.0.0.1:8080/ and its application at
+http://127.0.0.1:8082/. Both are bound only to local addresses.
 
 ## Start in Linux
 
@@ -49,10 +56,10 @@ to the Docker daemon. The app runs inside the official Python 3.12 image.
 ## Local application
 
 ```bash
-python3 -m app.main
+APP_PORT=8083 python3 -m app.main
 ```
 
-Open `http://127.0.0.1:8080/`. Stop with Ctrl+C.
+Open `http://127.0.0.1:8083/`. Stop with Ctrl+C. Port 8080 is used by Jenkins.
 The direct Docker and Compose demos use `http://127.0.0.1:8081/`.
 Jenkins deploys on `http://127.0.0.1:8082/` to avoid its usual port 8080.
 These addresses refer to the machine running the application or Docker daemon.
@@ -82,10 +89,10 @@ operations that have actually completed.
 bash scripts/publish_github.sh
 ```
 
-Create a **Pipeline** job `Sarsembayev_Eldar_DevOps`. Choose **Pipeline script from SCM**,
+The **Pipeline** job `Sarsembayev_Eldar_DevOps` is created and verified. Its settings are **Pipeline script from SCM**,
 SCM **Git**, your real repository URL, branch `*/main`, Script Path `Jenkinsfile`.
-For a private repository configure appropriate GitHub credentials in Jenkins.
-Build Now must actually finish with `Finished: SUCCESS` before the lab is complete.
+This private repository uses the dedicated read-only SSH deploy key `github-lab-readonly` in Jenkins.
+The executed build finished with `Finished: SUCCESS`. Use Build Now for your own video demonstration.
 
 The pipeline stages are Checkout, Build, Test, Docker Build, Docker Run.
 It prints student details and the exact Git commit, runs the 11 tests, builds a
@@ -103,8 +110,8 @@ agent's actual label before running.
 - `docs/API.md`: HTTP endpoints and environment variables.
 - `verification/LOCAL_VERIFICATION.txt`: checks actually performed on Windows.
 
-The prepared files do not themselves prove a Linux, Docker or Jenkins run.
-Capture actual outputs on your Linux system. The sample `logs/application.log`
+Linux, Docker and Jenkins were actually executed in the installed WSL system.
+The report distinguishes actual execution transcripts from original preparation checks. The sample `logs/application.log`
 is intentionally generated for Task 2; it is not a historical execution log.
 
 ## Safe scope and privacy

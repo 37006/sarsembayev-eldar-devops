@@ -18,7 +18,16 @@ The application uses Python's standard library and needs no pip dependencies.
 | Compose demonstration container | `sarsembayev-eldar-compose` |
 | Jenkins job | `Sarsembayev_Eldar_DevOps` |
 
-## Start in your Linux system
+## Windows 11 and Linux setup
+
+The Windows WSL 3.0.1 component is installed. Virtual Machine Platform has been
+enabled and Windows requires a restart before Linux can be started.
+Ubuntu, Docker and Jenkins have not been installed or run yet.
+After restarting Windows, continue the setup with Codex. The official Ubuntu
+24.04 installer for Docker, Compose, Java and Jenkins is prepared in
+`scripts/install_ubuntu_tools.sh`; it requires Linux with systemd.
+
+## Start in Linux
 
 Extract the ZIP so the project is in `~/devops/sarsembayev_eldar/`.
 The ZIP includes `.git`, so the existing meaningful commit history is preserved.
@@ -62,10 +71,12 @@ health, JSON data, HTTP environment overrides and 404 responses.
 
 ## GitHub and Jenkins
 
-Register your own GitHub account and create an empty repository named
-`sarsembayev-eldar-devops`. Do not initialize it with a README or license because
-this project already has its own Git history. Use a private repository with
-instructor access, or choose public visibility yourself.
+The GitHub account `37006` is connected and its private repository has been created:
+https://github.com/37006/sarsembayev-eldar-devops
+The original Git history is sent with Git, without recreating the commits through
+file uploads. Instructor access must be configured before submission.
+The setup status in `docs/WINDOWS_SETUP_RU.md` distinguishes preparation from
+operations that have actually completed.
 
 ```bash
 bash scripts/publish_github.sh
@@ -117,4 +128,3 @@ Docker build context. Use a credential manager for GitHub authentication.
 - [Git merge](https://git-scm.com/docs/git-merge)
 - [Python HTTP server](https://docs.python.org/3.12/library/http.server.html)
 - [Create a GitHub account](https://docs.github.com/en/account-and-profile/how-tos/account-management/creating-an-account-on-github)
-

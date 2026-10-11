@@ -1,0 +1,31 @@
+LOCAL VERIFICATION - ACTUAL WINDOWS RUN
+Student: Eldar Sarsembayev | Group: IT2-2301 | Student ID: 37006
+Verified at: 2026-10-11T12:08:52.397124+00:00
+Python: 3.12.14
+Command: python -m compileall -q app tests
+Exit code: 0
+
+Command: python -m unittest discover -s tests -v
+test_all_environment_overrides (test_app.ConfigurationTests.test_all_environment_overrides) ... ok
+test_html_escapes_user_input (test_app.ConfigurationTests.test_html_escapes_user_input) ... ok
+test_html_has_required_message (test_app.ConfigurationTests.test_html_has_required_message) ... ok
+test_missing_config_fails_explicitly (test_app.ConfigurationTests.test_missing_config_fails_explicitly) ... ok
+test_one_override_preserves_other_defaults (test_app.ConfigurationTests.test_one_override_preserves_other_defaults) ... ok
+test_personal_defaults (test_app.ConfigurationTests.test_personal_defaults) ... ok
+test_health (test_app.HttpTests.test_health) ... ok
+test_homepage (test_app.HttpTests.test_homepage) ... ok
+test_http_uses_environment (test_app.HttpTests.test_http_uses_environment) ... ok
+test_missing_route (test_app.HttpTests.test_missing_route) ... ok
+test_student_json (test_app.HttpTests.test_student_json) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.550s
+
+OK
+
+Static checks: required Dockerfile instructions, five Jenkins stages,
+required gitignore rules and LF line endings: PASS
+
+Scope: application and tests executed on Windows.
+Not executed here: Linux scripts, Docker build/run, Compose, Jenkins or GitHub push.
+No Finished: SUCCESS result, remote URL, video or Linux screenshot is fabricated.

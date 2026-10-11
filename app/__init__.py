@@ -1,0 +1,2 @@
+"""Personal DevOps laboratory application."""
+
